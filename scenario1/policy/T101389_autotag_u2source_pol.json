@@ -1,0 +1,19 @@
+        {
+        "pol_id": "T101389_autotag_u2source_pol",
+        "action_id": "AUTOTAG",
+        "action_params": {
+            "rule": {
+            "name":"setFromExistingField",
+            "action": "regex",
+            "existingField": "filename",
+            "regexPattern": "[^/]+",
+            "matchNo": 3,
+            "newField": "u2-source"
+            }
+        },
+        "schedule": "NOW",
+        "pol_filter": "filename LIKE ('%T101389%') AND filetype LIKE ('%jpg%')",
+        "pol_state": "active",
+        "explicit": "true",
+        "collections": []
+        }
