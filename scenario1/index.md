@@ -1,4 +1,5 @@
-# Scenario 1: Create Tags from AutoTag Policy, Custom-Tagging and Filtering
+# Scenario 1: Initialize Catalog with Metadata Ingest & Indexing, AutoTag and Custom-Tagging
+
 
 
 The step-by-step instruction and results are captured with screenshots and can be downloaded as [PDF](rm/T101434-s1.pdf).
