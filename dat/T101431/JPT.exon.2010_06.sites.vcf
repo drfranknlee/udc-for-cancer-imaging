@@ -1,0 +1,21 @@
+##fileformat=VCFv4.0
+##fileDate=Jun 29, 2010
+##INFO=<ID=NS,Number=1,Type=Integer>
+##INFO=<ID=DP,Number=1,Type=Integer>
+##INFO=<ID=AC,Number=1,Type=Integer>
+##INFO=<ID=AN,Number=1,Type=Integer>
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=VR,Number=1,Type=Integer,Description="Number of variant reads">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">
+##FORMAT=<ID=FT,Number=.,Type=String,Description="Filter">
+##FILTER=<ID=atlas>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+4	101620184	.	TAAC	T	23	PASS	AC=21;AN=40;DP=3451;NS=87
+7	137263453	.	CTGG	C	23	PASS	AC=81;AN=134;DP=2737;NS=86
+9	106400589	.	GT	G	21	PASS	AC=2;AN=4;DP=4553;NS=87
+12	74103081	.	G	GAC	20	PASS	AC=8;AN=16;DP=3920;NS=85
+14	22310553	.	T	TAGC	31	PASS	AC=13;AN=40;DP=7447;NS=87
+14	22618623	.	A	AGAACGT	99	PASS	AC=14;AN=62;DP=7305;NS=87
+14	72707288	.	G	GACAGAC	99	PASS	AC=1;AN=2;DP=4621;NS=86
+15	83239315	.	C	CTTG	19	PASS	AC=8;AN=16;DP=2761;NS=77
+19	59665800	.	GCCT	G	23	PASS	AC=12;AN=26;DP=2720;NS=71

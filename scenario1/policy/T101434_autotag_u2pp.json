@@ -1,0 +1,25 @@
+        {
+        "pol_id": "T101434_autotag_u2pp_pol",
+        "action_id": "AUTOTAG",
+        "action_params": {
+            "rule": {
+            "name":"setFromExistingField",
+            "action": "regex",
+            "existingField": "filename",
+            "regexPattern": "_p_(.*)\/[124]0*X",
+            "matchNo": 1,
+            "newField": "u2-pp"
+            }
+        },
+
+	"schedule": {
+           "dayOfWeek": "*",
+            "hour": "*",
+            "minute": 5
+        },
+
+        "pol_filter": "filename LIKE ('%T101434%') AND datasource LIKE ('%udc-vault%')  AND filetype LIKE ('%png%')",
+        "pol_state": "active",
+        "explicit": "true",
+        "collections": []
+        }

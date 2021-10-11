@@ -21,26 +21,27 @@ SSH log into the Spectrum Discover server. If you cannot gain SSH access to the 
 
 Create the policy json file as following
 
-        {
-                "pol_id": "T101389_ImportTags_pol",
-                "action_id": "IMPORT_TAGS",
-                "action_params": {
-                        "agent":"ImportTags",
-                        "source_connection":"UDSt-CoS",
-                        "tag_file_path":"udc-vault/T101389/dataset/T101389_s2_manifest.csv",
-                        "tag_file_type":"csv"
-                },
-                "schedule": "NOW",
-                "pol_state": "active",
-                "pol_filter": "datasource IN ('udc-vault')"
-        }
+	{
+        "pol_id": "T100140_ImportTags_pol",
+        "action_id": "IMPORT_TAGS",
+        "action_params": {
+                "agent":"ImportTags",
+                "source_connection":"UDSt-CoS",
+                "tag_file_path":"udc-vault/T101434/dat/T100140/T100140_manifest_1.csv",
+                "tag_file_type":"csv"
+        },
+        "schedule": "NOW",
+        "pol_state": "active",
+        "pol_filter": "filename LIKE ('%T100140%') and datasource IN ('udc-vault')"
+	}
+
 
 
 Run two commands from CLI:
 
         gettoken
 
-        curl -k -H "Authorization: Bearer ${TOKEN}" https://localhost/policyengine/v1/policies/T101389_ImportTags_pol -X POST -d @./T101389_ImportTags_pol.json -H "Content-Type: application/json"
+        curl -k -H "Authorization: Bearer ${TOKEN}" https://localhost/policyengine/v1/policies/T100140_ImportTags_pol -X POST -d @./T100140_ImportTags_pol.json -H "Content-Type: application/json"
 
 
 This will create a Spectrum Discover metadata policy "IMPORT_TAGS" named "T101389_aircraft_import_scenario2_pol". The policy will also be executed automatically. 

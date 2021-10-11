@@ -1,0 +1,19 @@
+        {
+        "pol_id": "T101434_autotag_u2type_pol",
+        "action_id": "AUTOTAG",
+        "action_params": {
+            "rule": {
+            "name":"setFromExistingField",
+            "action": "regex",
+            "existingField": "filename",
+            "regexPattern": "\/SOB_(.*)_d_",
+            "matchNo": 1,
+            "newField": "u2-type"
+            }
+        },
+        "schedule": "NOW",
+        "pol_filter": "filename LIKE ('%T101434%') AND datasource LIKE ('%udc-vault%')  AND filetype LIKE ('%png%')",
+        "pol_state": "active",
+        "explicit": "true",
+        "collections": []
+        }
