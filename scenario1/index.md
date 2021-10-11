@@ -15,7 +15,7 @@ Please consult the [Spectrum Discover Documentation](https://www.ibm.com/docs/en
 
 In your local or public cloud account, create a cloud object storage service. Start with a new vault called udc-vault and create a folder within called "T101389". All your demo data will be uploaded into this folder. This object storage should be set up as a managed data source by Spectrum Discover. 
 
-<img src=rm/01-discover-query-newly-added-and-tagged-dataset.png>
+<img src=rm/01-upload-data-to-CoS.png>
 
 
 
