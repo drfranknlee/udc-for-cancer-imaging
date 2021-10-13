@@ -185,21 +185,21 @@ The report is stored and can be downloaded from Spectrum Discover web console. Y
 
 
 
-## 5. AutoTag Based on Filters
+## 5. Automate Custom-tagging with AutoTag Policy
 
-In this step, you will use AutoTage policy to create two new tags based on filtering. The filtering is a set of conditions you can specify to effectively calculate the qualifying files to be tagged. 
+In this step, you will create AutoTage policy to automate custom-tagging based on filtering. The filtering is a set of conditions you can specify to identify a set of data for custom-tagging. With the policy, the tagging will be accomplished by populating values into selected metadata tags. 
 
 Below is the AutoTag policy:
 
     {
-        "pol_id": "E1016404_autotag_add_field_pol",
+        "pol_id": "T101434_autotag_add2_pol",
         "action_id": "AUTOTAG",
         "action_params": {		
-        "tags": {"u2-el":"E1016404", "u2-pp":"FL"}
+        "tags": {"u2-el":"T101434-s1", "udc-dem2":"T101434-s1"}
  
         },
         "schedule": "NOW",
-        "pol_filter": "filename LIKE ('%T101389%') AND path LIKE ('%udc-vault%') AND u2-source LIKE ('%annotated%')",
+        "pol_filter": "filename LIKE ('%T101434%') AND datasource LIKE ('%udc-vault%')  AND filetype LIKE ('%png%')",
         "pol_state": "active",
         "explicit": "true",
         "collections": []
@@ -213,26 +213,29 @@ In Spectrum Discover server, run first command to refresh token:
 
 Run the second command to create the AutoTag policy:
 
-    curl -k -H "Authorization: Bearer ${TOKEN}" https://localhost/policyenginolicies/E1016404_autotag_add_field_pol -X POST -d @./E1016404_autotag_add_field_pol.json -H "Content-Type: application/json"
 
+	curl -k -H "Authorization: Bearer ${TOKEN}" https://localhost/policyengine/v1/policies/T101434_autotag_add2_pol -X POST -d @./T101434_autotag_add2.json -H "Content-Type: application/json"
+
+    
 
 In the Spectrum Discover console, you can confirm the policy has now been created and executed automatically for the first time.
 
-<img src=rm/E1016404-10-autotag-policy-added.png>
+<img src=rm/50-autotag-add2-policy-created.png>
 
 In the Policy History tab, you can confirm that the policy has run successfully. 
 
-<img src=rm/E1016404-20-autotag-policy-run-completed.png>
+<img src=rm/51-autotag-add2-policy-executed.png>
 
 
-You can now use the same filtre in the policy to find the files. 
+You can now use the same SQL query as defined in the policy filter to find the data. 
 
-<img src=rm/E1016404-30-query-for-new-dataset.png>
+    filename LIKE ('%T101434%') AND datasource LIKE ('%udc-vault%')  AND filetype LIKE ('%png%')
 
-The matched files are displayed along with the two new tags -- <B>u2-el</B> and <B>u2-pp</B>
 
-<img src=rm/E1016404-40-new-dataset-w-calculated-tag.png>
 
+The matched files are displayed along with the two new tags -- <B>udc-dem2</B> and <B>u2-el</B>
+
+<img src=rm/53-autotag-add2-tagged-dataset.png>
 
 
 ## 6. View Images Directly with Calculated URL
@@ -240,16 +243,16 @@ The matched files are displayed along with the two new tags -- <B>u2-el</B> and 
 Combine the values of metadata tag "path" (ie bucket/vault) and "name" (filepath to the objects including the directories) for the full path to the images stored in the object storage bucket. The url for the object storage server or host can be located in the Spectrum Discover "Data source management" panel. In our case:
 
 - path: udc-vault
-- name: T101389/dataset/annotated/000ec980b5b17156a55093b4bd6004ab.jpg
+- name: T101434/dat/T100140/SOB_benign_d_adenosis_p_14-22549AB/100X/SOB_B_A-14-22549AB-100-001.png
 - cluster: 9.11.221.105
 
-<img src=rm/T101389-s1-find-fullpath-to-object.png>
+<img src=rm/60-rebuild-object-access-url.png>
 
 
-You can concatenate the cluster, path and name value to the url for the object as: http://9.11.221.105/udc-vault/T101389/dataset/annotated/000ec980b5b17156a55093b4bd6004ab.jpg
+You can concatenate the cluster, path and name value to the url for the object as: http://9.11.221.105/udc-vault/T101434/dat/T100140/SOB_benign_d_adenosis_p_14-22549AB/100X/SOB_B_A-14-22549AB-100-001.png
 
 
 You can open and visualize the image direclty from a web browser. 
 
-<img src=rm/T101389-s1-direct-access-to-file.png>
+<img src=rm/61-image-displayed-directly-from-url.png>
 

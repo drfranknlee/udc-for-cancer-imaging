@@ -1,0 +1,14 @@
+
+    {
+        "pol_id": "T101434_autotag_add2_pol",
+        "action_id": "AUTOTAG",
+        "action_params": {		
+        "tags": {"u2-el":"T101434-s1", "udc-dem2":"T101434-s1"}
+ 
+        },
+        "schedule": "NOW",
+        "pol_filter": "filename LIKE ('%T101434%') AND datasource LIKE ('%udc-vault%')  AND filetype LIKE ('%png%')",
+        "pol_state": "active",
+        "explicit": "true",
+        "collections": []
+    }
