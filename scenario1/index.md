@@ -1,4 +1,4 @@
-# Scenario 1: Initialize Catalog with Metadata Ingest & Indexing, AutoTag and Custom-Tagging
+# Scenario 1: Initialize Catalog with Metadata Indexing, AutoTag and Custom-Tagging
 
 
 
